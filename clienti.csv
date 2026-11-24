@@ -1,0 +1,11 @@
+client_id,nume,varsta,oras,sold,venit_lunar,nr_tranzactii
+101,Andrei,24,Alba Iulia,12500,4500,18
+102,Maria,35,Cluj,28700,7200,32
+103,Alex,29,Sibiu,5400,3900,11
+104,Ioana,42,Cluj,45800,8500,47
+105,Radu,51,Brasov,63200,11000,53
+106,Elena,27,Alba Iulia,9800,5100,21
+107,Mihai,38,Sibiu,35100,7800,39
+108,Ana,22,Cluj,3200,3600,8
+109,Vlad,45,Brasov,52400,9500,44
+110,Diana,31,Alba Iulia,19600,6200,27
