@@ -18,23 +18,54 @@ def din_liste(ids: list, nume: list, orase: list, solduri: list) -> list:
 
 
 def citeste_tranzactii(nume_fisier: str) -> list:
-    pass
+    tranzactii=[]
+    with open(nume_fisier, "r") as fisier:
+        cititor=csv.reader(fisier)
+        next(cititor)
+        for id, client_id,tip,suma in cititor:
+            tranzactii.append({"id":int(id),"client_id": int(client_id),"tip": tip, "suma": int(suma)}) 
+    return tranzactii
+    
 
 
 def citeste_clienti(nume_fisier: str) -> list:
-    pass
+    clienti=[]
+    with open(nume_fisier, "r") as fisier:
+        cititor=csv.reader(fisier)
+        next(cititor)
+        for client_id, nume,varsta,oras,sold,venit_lunar, nr_tranzactii in cititor :
+            clienti.append({"client_id":int(client_id), "nume":nume, "varsta":varsta, "oras":oras,
+                            "sold":int(sold), "venit_lunar":venit_lunar, "nr_tranzactii":nr_tranzactii})
+    return clienti
+            
+        
+        
 
 
 def total(tranzactii: list) -> int:
-    pass
+    s=0
+    for n in tranzactii:
+        s+=n["suma"]
+    return s
 
 
 def medie(tranzactii: list) -> float:
-    pass
+    if len(tranzactii) == 0 :
+        return 0.0
+
+    return round(total(tranzactii)/len(tranzactii),2)
 
 
 def total_pe(tranzactii: list, cheie: str) -> dict:
-    pass
+   totaluri={}
+   for tranzactie in tranzactii:
+    grup=tranzactie[cheie]
+    if grup in totaluri :
+       totaluri[grup]+=tranzactie["suma"]
+    else:
+        totaluri[grup]=tranzactie["suma"]
+   return totaluri
+
 
 
 def clienti_dupa_id(clienti: list) -> dict:
